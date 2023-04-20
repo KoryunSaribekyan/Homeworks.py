@@ -1,0 +1,24 @@
+import random
+
+print("Введите количество элементов: ")
+count = int(input())
+array = [random.randint(0, 10) for i in range(count)]
+
+print(array)
+print("Введите искомое число: ")
+found_number = int(input())
+count_number = 0
+closest_number = array[0]
+diff = abs(found_number - array[0])
+
+for i in range(1, len(array)):
+    if array[i] == found_number:
+        count_number += 1
+    new_diff = abs(found_number - array[i])
+    if new_diff < diff:
+        closest_number = array[i]
+        diff = new_diff
+
+print("Искомое число встречается: " + str(count_number) + " раз")
+if count_number == 0:
+    print("Ближайшее число: " + str(closest_number))
